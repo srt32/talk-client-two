@@ -6,32 +6,7 @@ App.Router.map(function() {
 
 App.IndexRoute = Ember.Route.extend({
   model: function() {
-    return [
-      App.Contact.create(
-        {
-          id: 1,
-          name: "Jame",
-          frequency: 14,
-          lastConversation: "2014-08-03 00:28:25"
-        }
-      ),
-      App.Contact.create(
-        {
-          id: 2,
-          name: "Dolly",
-          frequency: 14,
-          lastConversation: "2014-06-10 00:28:25"
-        }
-      ),
-      App.Contact.create(
-        {
-          id: 3,
-          name: "Masha",
-          frequency: 14,
-          lastConversation: "2014-04-10 00:28:25"
-        }
-      )
-    ];
+    this.store.find('contact');
   }
 });
 
@@ -40,7 +15,11 @@ App.IndexController = Ember.ArrayController.extend({
   sortedContacts: Ember.computed.sort('model', 'sortedProperties')
 });
 
-App.Contact = Ember.Object.extend({
+App.Contact = DS.Model.extend({
+  name: DS.attr(),
+  frequency: DS.attr('integer'),
+  lastConversation: DS.attr('string'),
+
   lastConversationDaysAgo: function() {
     var miliseconds = Date.now() - Date.parse(this.get('lastConversation'));
     var days = miliseconds / 1000 / 60 / 60 / 24;

@@ -15,6 +15,7 @@ Bundler.require(*Rails.groups)
 
 module Server
   class Application < Rails::Application
+
     config.rails_lineman.lineman_project_location = "../client"
 
     config.i18n.enforce_available_locales = true
