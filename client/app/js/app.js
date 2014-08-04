@@ -4,9 +4,11 @@ App.Router.map(function() {
   // put your routes here
 });
 
+//App.ApplicationAdapter = DS.RESTAdapter.extend({});
+
 App.IndexRoute = Ember.Route.extend({
   model: function() {
-    this.store.find('contact');
+    return this.store.find('contact');
   }
 });
 
@@ -17,8 +19,8 @@ App.IndexController = Ember.ArrayController.extend({
 
 App.Contact = DS.Model.extend({
   name: DS.attr(),
-  frequency: DS.attr('integer'),
-  lastConversation: DS.attr('string'),
+  frequency: DS.attr(),
+  lastConversation: DS.attr('date'),
 
   lastConversationDaysAgo: function() {
     var miliseconds = Date.now() - Date.parse(this.get('lastConversation'));
