@@ -19,8 +19,11 @@ App.IndexController = Ember.ArrayController.extend({
 
 App.Contact = DS.Model.extend({
   name: DS.attr(),
-  frequency: DS.attr(),
-  lastConversation: DS.attr('date'),
+  frequency: DS.attr('number'),
+  lastConversation: DS.attr(
+    'date',
+    { defaultValue: function() { return new Date(); } }
+  ),
 
   lastConversationDaysAgo: function() {
     var miliseconds = Date.now() - Date.parse(this.get('lastConversation'));
