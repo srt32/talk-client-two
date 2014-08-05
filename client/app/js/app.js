@@ -1,18 +1,21 @@
 App = Ember.Application.create();
 
 App.Router.map(function() {
-  // put your routes here
+  this.resource('contacts', { path: '/' }, function() {
+    this.resource('conversations', function() {
+    });
+  });
 });
 
 //App.ApplicationAdapter = DS.RESTAdapter.extend({});
 
-App.IndexRoute = Ember.Route.extend({
+App.ContactsRoute = Ember.Route.extend({
   model: function() {
     return this.store.find('contact');
   }
 });
 
-App.IndexController = Ember.ArrayController.extend({
+App.ContactsController = Ember.ArrayController.extend({
   actions: {
     createContact: function() {
       var name = this.get('name');

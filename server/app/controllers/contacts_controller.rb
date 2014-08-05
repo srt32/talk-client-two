@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
   def create
     contact = Contact.create(contact_params)
 
-    respond_with(contact, serializer: ContactSerializer)
+    respond_with(contact, serializer: ContactSerializer, location: false)
   end
 
   def index
