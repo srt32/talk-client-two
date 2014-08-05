@@ -1,7 +1,9 @@
 class ContactsController < ApplicationController
+  respond_to :json
+
   def index
     contacts = Contact.all
 
-    render(json: { contacts: contacts }.to_json )
+    respond_with(contacts, each_serializer: ContactSerializer)
   end
 end
