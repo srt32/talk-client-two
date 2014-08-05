@@ -1,7 +1,7 @@
 App = Ember.Application.create();
 
 App.Router.map(function() {
-  this.resource('contacts', { path: '/' }, function() {
+  this.resource('contacts', function() {
     this.resource('conversations', function() {
     });
   });
