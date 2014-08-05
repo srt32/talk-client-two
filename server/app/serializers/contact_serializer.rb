@@ -3,6 +3,7 @@ class ContactSerializer < ActiveModel::Serializer
     :id,
     :created_at,
     :frequency,
+    :last_conversation,
     :name,
     :updated_at
   )
