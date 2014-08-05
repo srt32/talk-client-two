@@ -1,4 +1,6 @@
 class ContactSerializer < ActiveModel::Serializer
+  embed :ids, include: true
+
   attributes(
     :id,
     :created_at,
@@ -7,4 +9,6 @@ class ContactSerializer < ActiveModel::Serializer
     :name,
     :updated_at
   )
+
+  has_many :conversations, key: :conversations
 end

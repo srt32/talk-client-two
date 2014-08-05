@@ -6,3 +6,5 @@
   <li>{{score}} {{name}} {{frequency}} {{lastConversationDaysAgo}}</li>
 {{/each}}
 </ul>
+
+{{outlet}}

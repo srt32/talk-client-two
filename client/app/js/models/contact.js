@@ -1,4 +1,7 @@
 App.Contact = DS.Model.extend({
+  //conversations: DS.hasMany('conversation', { async: true }),
+  conversations: DS.hasMany('conversation'),
+
   name: DS.attr(),
   frequency: DS.attr('number'),
   lastConversation: DS.attr(
