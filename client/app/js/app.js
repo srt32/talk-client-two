@@ -15,7 +15,17 @@ App.IndexRoute = Ember.Route.extend({
 App.IndexController = Ember.ArrayController.extend({
   actions: {
     createContact: function() {
-      
+      var name = this.get('name');
+      if (!name.trim()) { return; };
+
+      var contact = this.store.createRecord('contact', {
+        name: name,
+        frequency: 7
+      });
+
+      this.set('name', '');
+
+      contact.save();
     }
   },
 
