@@ -31,38 +31,3 @@ App.ConversationsRoute = Ember.Route.extend({
     return this.modelFor('contact').get('conversations');
   }
 });
-
-App.ConversationsController = Ember.ArrayController.extend({
-  //conversations: this.getModelFor('conversations'),
-  //sortedProperties: ['created_at:asc'],
-  //sortedConversations: Ember.computed.sort('model', 'sortedProperties')
-
-  actions: {
-    createConversation: function() {
-      var conversation = this.store.createRecord('conversation', {});
-
-      conversation.save();
-    }
-  }
-});
-
-App.ContactsController = Ember.ArrayController.extend({
-  actions: {
-    createContact: function() {
-      var name = this.get('name');
-      if (!name.trim()) { return; };
-
-      var contact = this.store.createRecord('contact', {
-        name: name,
-        frequency: 7
-      });
-
-      this.set('name', '');
-
-      contact.save();
-    }
-  },
-
-  sortedProperties: ['score:asc'],
-  sortedContacts: Ember.computed.sort('model', 'sortedProperties')
-});
