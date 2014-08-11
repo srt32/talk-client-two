@@ -4,10 +4,14 @@ App.Contact = DS.Model.extend({
 
   name: DS.attr(),
   frequency: DS.attr('number'),
-  lastConversation: DS.attr(
+  last_conversation: DS.attr(
     'date',
     { defaultValue: function() { return new Date(); } }
   ),
+
+  lastConversation: function() {
+    return this.get('last_conversation');
+  }.property('last_conversation'),
 
   lastConversationDaysAgo: function() {
     var miliseconds = Date.now() - Date.parse(this.get('lastConversation'));

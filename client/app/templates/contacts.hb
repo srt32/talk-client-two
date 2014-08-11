@@ -3,7 +3,7 @@
 
 <ul>
 {{#each sortedContacts}}
-  <li>{{score}} {{name}} {{frequency}} {{lastConversationDaysAgo}}</li>
+  <li>{{score}} {{#link-to 'conversations' this}}{{name}}{{/link-to}} {{lastConversationDaysAgo}} -- {{frequency}}</li>
 {{/each}}
 </ul>
 

@@ -1,0 +1,29 @@
+Try "pg_upgrade --help" for more information.
+
+-----------------------------------------------------------------
+  pg_upgrade run on Sun Aug 10 19:48:13 2014
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql/9.0.4/bin" failed: No such file or directory
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Sun Aug 10 19:48:39 2014
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql/9.2bin" failed: No such file or directory
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Sun Aug 10 19:48:50 2014
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql/9.2/bin" failed: No such file or directory
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Sun Aug 10 19:49:04 2014
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql/9.2.0/bin" failed: No such file or directory
+
