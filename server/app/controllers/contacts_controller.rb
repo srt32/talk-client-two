@@ -23,7 +23,7 @@ class ContactsController < ApplicationController
   end
 
   def cleansed_params
-    params[:contact].delete(:lastConversation)
+    params[:contact].delete(:last_conversation)
     params
   end
 end
