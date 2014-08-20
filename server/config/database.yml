@@ -10,3 +10,7 @@ development: &default
 test:
   <<: *default
   database: server_test
+
+production:
+  <<: *default
+  database: server_production
