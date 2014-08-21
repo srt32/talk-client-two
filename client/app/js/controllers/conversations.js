@@ -6,13 +6,15 @@ App.ConversationsController = Ember.ArrayController.extend({
 
   actions: {
     createConversation: function() {
-      var contactId = parseInt(this.get('controllers.contact').get('model').get('id'), 10);
+      var contact = this.get('controllers.contact').get('model');
+      var contactId = parseInt(contact.get('id'), 10);
 
       var conversation = this.store.createRecord('conversation', {
         contact_id: contactId
       });
 
       conversation.save();
+      contact.get('conversations').addObject(conversation);
     }
   }
 });
