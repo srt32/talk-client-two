@@ -10,8 +10,13 @@ App.Contact = DS.Model.extend({
   ),
 
   lastConversation: function() {
-    return this.get('last_conversation');
-  }.property('last_conversation'),
+    var conversations = this.get('conversations').toArray();
+    if (conversations.length > 0) {
+      return conversations[conversations.length - 1].get('created_at');
+    } else {
+      return new Date();
+    };
+  }.property('conversations'),
 
   lastConversationDaysAgo: function() {
     var miliseconds = Date.now() - Date.parse(this.get('lastConversation'));
